@@ -1,0 +1,74 @@
+.header{
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #f8f8f8;
+    height: 50px;
+}
+.btn-login-and-register{
+    border: 1px solid #cdcdcd;
+    padding: 10px 20px;
+    border-radius:10px;
+    cursor: pointer;
+    transition: 0.5s;
+    bottom: 4px;
+    overflow: hidden;
+    width: 15px;
+    position: relative;
+}
+.btn-login-and-register span
+{
+    position: absolute;
+    left: 70px;
+    opacity: 0;
+    transition: 0.2s;
+}
+.btn-login-and-register:hover {
+    width: 100px;
+    border: 1px solid #565656;
+}
+.btn-login-and-register:hover .text-btn-login-and-register{
+    opacity: 1;
+}
+.view-item , .view-items{
+    height: calc(100vh - 50px);
+}
+.view-items{
+    padding: 20px;
+    overflow-y: scroll;
+    box-sizing: border-box;
+}
+.items{
+    width: 200px;
+    height: 200px;
+    margin: 50px;
+    cursor: pointer;
+    border: 2px solid #5858ff;
+    border-radius: 10px;
+}
+.item-img-all{
+    transition: 0.2s;
+}
+.items:hover .item-img-all{
+    transform:scale(1.2);
+}
+::-webkit-scrollbar{
+    width: 7px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #dbdbdb;
+    border-radius: 100px;
+}
+
+@media all and (max-width: 700px) {
+    .view-item{
+        flex-direction: column!important;
+    }
+}
+.view-items li{
+    width: 100%;
+    height: 200px;
+    list-style: none;
+    background-color: #1b4b72;
+    border-radius: 10px;
+    margin: 10px 0;
+}
