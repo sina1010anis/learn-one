@@ -15,6 +15,7 @@ use App\Http\Controllers\IndexController;
 
 Route::get('/', [IndexController::class , 'index']);
 Route::get('/item/{name}', [IndexController::class , 'ViewItem'])->name('ViewItem');
+Route::post('/show/item', [IndexController::class , 'ShowItem'])->name('ShowItem');
 
 Auth::routes();
 

@@ -109,7 +109,45 @@
     background-color: #dbdbdb;
     border-radius: 100px;
 }
-
+.page-view-item{
+    width: 80%;
+    display: none;
+    height: 90vh;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 15px;
+    box-sizing:border-box ;
+    z-index: 15;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px rgba(0,0,0,.5);
+    transform: translate(-50%,-50%);
+}
+.group-btn-cls i{
+    transition: 0.2s;
+}
+.group-btn-cls i:hover {
+    color: #ff5454;
+    transform: rotate(180deg);
+}
+.view-dec-item-show{
+    height: 80vh;
+}
+.view-video-group{
+    width: 90%;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.view-dec-item-show-video{
+    position: absolute;
+}
+.view-dec-item-show p {
+    line-height: 30px;
+}
 @media all and (max-width: 700px) {
     .view-item{
         flex-direction: column!important;

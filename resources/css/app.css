@@ -258,3 +258,14 @@ a {
     margin: 0;
     padding: 0;
 }
+.blur{
+    background-color: #323232;
+    width: 100%;
+    z-index: 10;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    display: none;
+    left: 0;
+    opacity: 50%;
+}
