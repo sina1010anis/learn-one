@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Builder\ViewItem;
 use App\Models\Article;
+use App\Models\File_Video;
 use App\Models\Video;
 use Database\Factories\ArticleFactory;
 use Database\Factories\VideoFactory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class IndexController extends Controller
 {
@@ -40,5 +42,15 @@ class IndexController extends Controller
         {
             return $render->Article($request);
         }
+    }
+    public function DLFile($id , Request $request)
+    {
+        if (! $request->hasValidSignature()) {
+            abort(401);
+        }else{
+            $path = File_Video::whereId($id)->first();
+            return response()->download('img/video/'.$path->path);
+        }
+
     }
 }

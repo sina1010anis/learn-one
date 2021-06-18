@@ -11,5 +11,9 @@ class DataAll
     public function Data()
     {
         View::composer('*' , Title::class);
+        View::composer('*' , OrderVideo::class);
+        View::composer('*' , OrderArticle::class);
+        View::composer('*' , FileVideo::class);
+        View::composer('*' , FileArticle::class);
     }
 }

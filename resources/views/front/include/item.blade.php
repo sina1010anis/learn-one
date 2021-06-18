@@ -19,9 +19,9 @@
             @endif
             <a class="btn-dec set-font f-12 btn-setting-item" @mouseover="set_item({{$item->id}} , {{$item->type}})"  @click="show_dec_item">برسی محصول</a>
             @if($item->price <= 0)
-                <a class="btn-buy set-font f-12 btn-setting-item" href="">اضافه به اکانت</a>
+                <a class="btn-buy set-font f-12 btn-setting-item" href="{{route('BuyItem' , ['type' => $item->type , 'id' => $item->id])}}">اضافه به اکانت</a>
             @else
-                <a class="btn-buy set-font f-12 btn-setting-item" href="">خرید محصول</a>
+                <a class="btn-buy set-font f-12 btn-setting-item" href="{{route('BuyItem' , ['type' => $item->type , 'id' => $item->id])}}">خرید محصول</a>
             @endif
         </span>
     @endforeach

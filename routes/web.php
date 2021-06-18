@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\BuyController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,10 +14,14 @@ use App\Http\Controllers\IndexController;
 |
 */
 
-Route::get('/', [IndexController::class , 'index']);
+Route::get('/', [IndexController::class , 'index'])->name('IndexPage');
 Route::get('/item/{name}', [IndexController::class , 'ViewItem'])->name('ViewItem');
 Route::post('/show/item', [IndexController::class , 'ShowItem'])->name('ShowItem');
 
+Route::get('/buy/item/{type}/{id}', [BuyController::class , 'BuyItem'])->name('BuyItem')->middleware('auth');
+Route::get('/verify/back/item/', [BuyController::class , 'VerifyItem'])->name('VerifyItem')->middleware('auth');
+
+Route::get('/DL/File/{id}', [IndexController::class , 'DLFile'])->name('DLFile')->middleware('auth');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
