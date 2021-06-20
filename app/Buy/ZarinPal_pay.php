@@ -6,13 +6,14 @@ use Zarinpal\Zarinpal;
 
 class ZarinPal_pay implements InterfaceTypeClass
 {
-    public function send($price)
+    public function send($price , $type)
     {
         $zarinpal = new Zarinpal('XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX');
         $zarinpal->enableSandbox(); // active sandbox mod for test env
         // $zarinpal->isZarinGate(); // active zarinGate mode
         $results = $zarinpal->request(
-            route('VerifyItem'),          //required
+
+            ($type == 0) ? route('VerifyItemVideo'):route('VerifyItem'),          //required
             $price,                                  //required
             'testing',                             //required
             'me@example.com',                      //optional

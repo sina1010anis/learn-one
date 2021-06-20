@@ -12,6 +12,7 @@ class OrderVideo implements ComposeInterface
 {
     public function compose(View $view)
     {
-        return $view->with('order_video_panel_user' , order_video::where(['user_id' => auth()->user()->id , 'status' => '200'])->get());
+        if(auth()->check())
+            return $view->with('order_video_panel_user' , order_video::where(['user_id' => auth()->user()->id , 'status' => '200'])->get());
     }
 }

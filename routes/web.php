@@ -20,8 +20,12 @@ Route::post('/show/item', [IndexController::class , 'ShowItem'])->name('ShowItem
 
 Route::get('/buy/item/{type}/{id}', [BuyController::class , 'BuyItem'])->name('BuyItem')->middleware('auth');
 Route::get('/verify/back/item/', [BuyController::class , 'VerifyItem'])->name('VerifyItem')->middleware('auth');
+Route::get('/verify/back/item/video', [BuyController::class , 'VerifyItemVideo'])->name('VerifyItemVideo')->middleware('auth');
 
-Route::get('/DL/File/{id}', [IndexController::class , 'DLFile'])->name('DLFile')->middleware('auth');
+Route::get('/DL/File/{id}', [IndexController::class , 'DLFileVideo'])->name('DLFile')->middleware('auth');
+Route::post('/test', [IndexController::class , 'test'])->name('test');
+Route::get('/user/article', [IndexController::class , 'articleView'])->name('articleView')->middleware('auth');
+Route::get('/Dl/File/article/{id}', [IndexController::class , 'DLFileArticle'])->name('DLFileArticle')->middleware('auth');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

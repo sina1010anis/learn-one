@@ -6,3 +6,5 @@
         <img class="item-img-all" src="{{url('img/icon/video.png')}}" alt="video" title="فیلم های اموزشی">
     </a>
 </div>
+
+

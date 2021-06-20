@@ -10,9 +10,8 @@ use Illuminate\View\View;
 
 class FileArticle implements ComposeInterface
 {
-
     public function compose(View $view)
     {
-        return $view->with('file_article_panel_user' , File_Article::orderBy('id' , 'asc')->get());
+        return $view->with('file_article_panel_user' , File_Article::orderBy('id' , 'desc')->get());
     }
 }

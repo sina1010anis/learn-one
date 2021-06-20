@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Builder\ViewItem;
 use App\Models\Article;
+use App\Models\File_Article;
 use App\Models\File_Video;
 use App\Models\Video;
+use App\Request\TestRequest;
 use Database\Factories\ArticleFactory;
 use Database\Factories\VideoFactory;
 use Illuminate\Http\Request;
@@ -43,7 +45,7 @@ class IndexController extends Controller
             return $render->Article($request);
         }
     }
-    public function DLFile($id , Request $request)
+    public function DLFileVideo($id , Request $request)
     {
         if (! $request->hasValidSignature()) {
             abort(401);
@@ -51,6 +53,23 @@ class IndexController extends Controller
             $path = File_Video::whereId($id)->first();
             return response()->download('img/video/'.$path->path);
         }
+    }
+    public function test(Request $request , TestRequest $testRequest)
+    {
+        //$testRequest->validate($request);
+    }
+    public function articleView()
+    {
+        return view('user.section.article' );
+    }
 
+    public function DLFileArticle($id,Request $request)
+    {
+        if (! $request->hasValidSignature()) {
+            abort(401);
+        }else{
+            $path = File_Video::whereId($id)->first();
+            return response()->download('img/video/'.$path->path);
+        }
     }
 }
