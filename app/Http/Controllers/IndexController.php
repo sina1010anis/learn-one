@@ -4,14 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Builder\ViewItem;
 use App\Models\Article;
+use App\Models\FackeData;
 use App\Models\File_Article;
 use App\Models\File_Video;
 use App\Models\Video;
+use App\QueryFilter\Active;
+use App\QueryFilter\Sort;
 use App\Request\TestRequest;
 use Database\Factories\ArticleFactory;
+use Database\Factories\FackeDataFactory;
 use Database\Factories\VideoFactory;
 use Illuminate\Http\Request;
+use Illuminate\Pipeline\Pipeline;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class IndexController extends Controller
 {
@@ -54,9 +60,10 @@ class IndexController extends Controller
             return response()->download('img/video/'.$path->path);
         }
     }
-    public function test(Request $request , TestRequest $testRequest)
+    public function test()
     {
-        //$testRequest->validate($request);
+        $data=app(Pipeline::class)->send(FackeData::query())->through([Active::class,Sort::class])->thenReturn()->get();
+        return $data;
     }
     public function articleView()
     {
