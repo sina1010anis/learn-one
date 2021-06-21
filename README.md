@@ -16,4 +16,7 @@ Used from:
 
 Used the latest versions now
 
+## TIPS :
+
+UI and UX have not been considered in this project !!!
 
